@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #fc90b4, #ffd6e8);
+        overflow: hidden;
+    }
+
+    /* LOADING BOX */
+    #loadingBox {
+        width: 330px;
+        padding: 25px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        text-align: center;
+        animation: fadeOut 1s ease forwards;
+        animation-delay: 3.2s;
+    }
+
+    .loveTitle {
+        font-size: 20px;
+        font-weight: 600;
+        color: #ff3c6d;
+        margin-bottom: 17px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .progressContainer {
+        width: 100%;
+        height: 18px;
+        background: #f8cedc;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .progressFill {
+        width: 0%;
+        height: 100%;
+        background: #ff3c6d;
+        border-radius: 50px;
+        transition: width 3s linear;
+    }
+
+    .heart {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        opacity: 0;
+        color: #ff0033;
+        transition: opacity 0.5s ease;
+    }
+
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    /* MAIN CARD */
+    #mainCard {
+        opacity: 0;
+        transform: scale(.85);
+        transition: 0.8s;
+        width: 250px;
+        padding: 18px;
+        background: white;
+        border-radius: 22px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        text-align: center;
+        position: absolute;
+    }
+
+    .videoBox {
+        background: #ffe6f0;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    video {
+        width: 100%;
+        border-radius: 14px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .cuteLine {
+        margin-top: 14px;
+        font-size: 20px;
+        color: #ff2e68;
+        font-weight: 500;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .btnRow {
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .btn {
+        background: #ff78a3bb;
+        padding: 10px 24px;
+        border: none;
+        border-radius: 22px;
+        color: white;
+        font-size: 15px;
+        transition: 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+        transform: scale(1.08);
+        background: #ff5a8b;
+    }
+
+    /* ----------------------------------------- */
+    /*             RESPONSIVE DESIGN             */
+    /* ----------------------------------------- */
+
+    @media (max-width: 600px) {
+
+        body {
+            padding: 20px;  /* Breathing space on mobile */
+            height: 100dvh;
+        }
+
+        #loadingBox {
+            width: 260px;
+            padding: 20px;
+        }
+
+        #mainCard {
+            width: 220px;      /* Smaller card */
+            padding: 14px;
+            transform: scale(.80);
+        }
+
+        video {
+            height: 150px;     /* Adjust video height */
+        }
+
+        .cuteLine {
+            font-size: 16px;
+        }
+
+        .btn {
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 380px) {
+
+        #mainCard {
+            width: 200px;
+            padding: 12px;
+            transform: scale(.75);
+        }
+
+        video {
+            height: 130px;
+        }
+
+        .cuteLine {
+            font-size: 15px;
+        }
+
+        .btn {
+            padding: 7px 16px;
+            font-size: 12px;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADING BOX -->
+<div id="loadingBox">
+    <div class="loveTitle">This is for my loveִֶָ𓂃 ࣪˖ ִֶָ🐇་༘࿐ <br>‘Kaviya𓆩❤︎𓆪’</div>
+
+    <div class="progressContainer">
+        <div class="progressFill" id="loader"></div>
+        <div class="heart" id="heart">❤</div>
+    </div>
+</div>
+
+
+<!-- MAIN CARD -->
+<div id="mainCard">
+    <div class="videoBox">
+        <video autoplay loop>
+            <source src="asset/video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="cuteLine">“We argue a lot...🥰but we never break.”</div>
+
+<div class="btnRow">
+    <a href="Moment.html" target="_blank" class="btn">Moment</a>
+    <a href="message.html" target="_blank" class="btn">Message</a>
+</div>
+
+</div>
+
+
+<script>
+    setTimeout(() => {
+        document.getElementById("loader").style.width = "100%";
+    }, 300);
+
+    setTimeout(() => {
+        document.getElementById("heart").style.opacity = "1";
+    }, 3000);
+
+    setTimeout(() => {
+        const card = document.getElementById("mainCard");
+        card.style.opacity = "1";
+        card.style.transform = "scale(1)";
+    }, 3300);
+</script>
+
+</body>
+</html>

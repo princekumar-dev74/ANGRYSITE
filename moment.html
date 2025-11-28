@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cute 3D Carousel</title>
+
+  <style>
+    :root {
+      --bg: #ffd6e8; /* Soft cute pink */
+      --size-desktop: 330px;
+      --size-mobile: 200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    /* MAIN CAROUSEL WRAPPER */
+    .carousel {
+      width: var(--size-desktop);
+      height: var(--size-desktop);
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 18s linear infinite;
+    }
+
+    .title {
+      position: absolute;
+      bottom: 40px;
+      font-size: 2rem;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: #ff4d6d;
+      font-weight: bold;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* INDIVIDUAL IMAGE CARDS */
+    .carousel img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.25);
+      transition: 0.5s ease;
+    }
+
+    .carousel:hover {
+      animation-play-state: paused;
+      cursor: pointer;
+    }
+
+    /* 3D Rotation Animation */
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    /* RESPONSIVE (Mobile) */
+    @media (max-width: 600px) {
+      .carousel {
+        width: var(--size-mobile);
+        height: var(--size-mobile);
+      }
+
+      .carousel img {
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carousel" id="carousel"></div>
+  <h1 class="title">Sweet Moment</h1>
+
+  <script>
+    const imageSources = [
+      "asset/1.jpg",
+      "asset/2.jpg",
+      "asset/3.jpg",
+      "asset/4.jpg",
+      "asset/5.jpg",
+      "asset/6.jpg",
+      "asset/7.jpg",
+      "asset/8.jpg",
+      "asset/9.jpg",
+      "asset/10.jpg"
+    ];
+
+    const carousel = document.getElementById("carousel");
+    const total = imageSources.length;
+    const angle = 360 / total;
+
+    imageSources.forEach((src, index) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.transform = `rotateY(${index * angle}deg) translateZ(400px)`;
+      carousel.appendChild(img);
+    });
+  </script>
+</body>
+</html>
